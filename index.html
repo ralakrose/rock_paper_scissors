@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Rock-Paper-Scissors</title>
+</head>
+<body>
+    <script>
+        
+    let playerSelection = prompt ('rock, paper, scissors?').toLowerCase();//makes it case insensitive
+    let compSelection = Math.random();//Random number selected by the computer
+    const tie = "The result is a tie!"
+    const paper = "Paper beats Rock!";
+    const scissors = "Scissors beats paper!";
+    const rock = "Rock beats Scissors";
+    const compWins = "You lose!";
+    const playerWins = "You win!";
+
+    //Specifying the random selected number to each of the 3 selections
+    if(compSelection<0.34){
+            compSelection = "rock"
+        }
+    else if(compSelection>0.33 && compSelection<0.67){
+        compSelection = "paper"
+    }
+    else{
+        compSelection = "scissors"
+    }
+
+    //Outputing the choices
+    console.log("Player: " + playerSelection);
+    console.log( "Computer:" + compSelection);
+    
+    //Declaring the winner
+    let compare = function (selection1, selection2){
+     if(selection1 === selection2){
+         console.log(tie); 
+     } 
+     else if(selection1 === "rock"){
+         if(selection2 === "scissors"){
+             console.log(rock + " " +  playerWins);
+         }
+     
+     else{
+         console.log(paper + " " +  compWins);
+     }
+    }
+     else if (selection1 === "paper"){
+         if(selection2 === "rock"){
+             console.log(paper + " " +  playerWins);
+         }
+         else{
+            console.log(scissors + " " +  compWins);
+         }
+     }
+     else if(selection1 === "scissors"){
+         if(selection2 === "rock"){
+            console.log(rock + " " +  compWins);
+         }
+         else{
+            console.log(scissors + " " + playerWins);
+
+         }
+
+     }
+    }
+    compare (playerSelection, compSelection);
+
+    </script>
+</body>
+</html>
