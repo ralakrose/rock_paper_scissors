@@ -47,7 +47,7 @@
     console.log( "Computer:" + compSelection);
     
     
-    //Declaring the winner
+    //Declaring the winner in each round
     let playRound = function (selection1, selection2){
      if(selection1 === selection2){
          console.log(tie); 
@@ -103,6 +103,7 @@
     }
     playRound (playerSelection, compSelection);
         }
+        //Declares the final winner
         console.log("COMPUTER " + compScore + " - " + "YOU " + playerScore);
         if(compScore>playerScore){
             console.log(compWins);
