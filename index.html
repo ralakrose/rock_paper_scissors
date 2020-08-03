@@ -9,8 +9,7 @@
 <body>
     <script>
         
-    let playerSelection = prompt ('rock, paper, scissors?').toLowerCase();//makes it case insensitive
-    let compSelection = Math.random();//Random number selected by the computer
+    
     const tie = "The result is a tie!"
     const paper = "Paper beats Rock!";
     const scissors = "Scissors beats paper!";
@@ -18,7 +17,14 @@
     const compWins = "You lose!";
     const playerWins = "You win!";
 
+    let round;
+    for(round=0; round<5; round++){
+    let playerSelection = prompt ('rock, paper, scissors?').toLowerCase();//makes it case insensitive
+    let compSelection = Math.random();//Random number selected by the computer
+
+    
     //Specifying the random selected number to each of the 3 selections
+    
     if(compSelection<0.34){
             compSelection = "rock"
         }
@@ -32,6 +38,7 @@
     //Outputing the choices
     console.log("Player: " + playerSelection);
     console.log( "Computer:" + compSelection);
+    
     
     //Declaring the winner
     let compare = function (selection1, selection2){
@@ -67,7 +74,7 @@
      }
     }
     compare (playerSelection, compSelection);
-
+    }
     </script>
 </body>
 </html>
