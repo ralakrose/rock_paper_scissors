@@ -16,10 +16,17 @@
     const rock = "Rock beats Scissors";
     const compWins = "You lose!";
     const playerWins = "You win!";
+    let compScore = 0;
+    let playerScore = 0;
 
     let round;
     for(round=0; round<5; round++){
-    let playerSelection = prompt ('rock, paper, scissors?').toLowerCase();//makes it case insensitive
+    let playerSelection = prompt (" Let's Play! Choose one:\n rock, paper, scissors")
+
+    //Prevents the program from throwing an error when there is a null entry
+    if(playerSelection != null){
+        playerSelection = playerSelection.toLowerCase();//makes it case insensitive
+    }
     let compSelection = Math.random();//Random number selected by the computer
 
     
@@ -41,40 +48,68 @@
     
     
     //Declaring the winner
-    let compare = function (selection1, selection2){
+    let playRound = function (selection1, selection2){
      if(selection1 === selection2){
          console.log(tie); 
      } 
      else if(selection1 === "rock"){
          if(selection2 === "scissors"){
              console.log(rock + " " +  playerWins);
+             playerScore += 1;
          }
      
      else{
          console.log(paper + " " +  compWins);
+         compScore += 1;
      }
     }
      else if (selection1 === "paper"){
          if(selection2 === "rock"){
              console.log(paper + " " +  playerWins);
+             playerScore += 1;
          }
          else{
             console.log(scissors + " " +  compWins);
+            compScore += 1;
          }
      }
      else if(selection1 === "scissors"){
          if(selection2 === "rock"){
             console.log(rock + " " +  compWins);
+            compScore += 1;
          }
          else{
             console.log(scissors + " " + playerWins);
+            playerScore += 1;
 
          }
+        
+        }
 
+        //When the player/user does not enter anything
+        else if(selection1 === ""){
+            if (selection2 === "rock" || selection2 === "paper" || selection2 === "scissors"  ){
+            console.log("No result. You did not enter anything.");
+            playerSelection;
+            }
+                       
+        }
+        //When the player enters anything other than rock, paper or scissors
+        else{
+            console.log("Invalid entry! Please try again.")
+            playerSelection;
      }
+       
     }
-    compare (playerSelection, compSelection);
-    }
+    playRound (playerSelection, compSelection);
+        }
+        console.log("COMPUTER " + compScore + " - " + "YOU " + playerScore);
+        if(compScore>playerScore){
+            console.log(compWins);
+        }
+        else{
+            console.log(playerWins);
+        }
     </script>
 </body>
 </html>
